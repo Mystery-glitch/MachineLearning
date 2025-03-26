@@ -1,8 +1,12 @@
 pandas
 numpy
+scipy
 seaborn
 scikit-learn
-catboost
+ipywidgets
+dill
 xgboost
+catboost
+dill
 
 # -e .
