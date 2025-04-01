@@ -37,11 +37,11 @@ class DataTransformation:
                     ("imputer",SimpleImputer(strategy="most_frequent")),
                     # with_mean=False: only scaling happens, no mean subtraction
                     # with_mean=True: the data is cecntered around 0
-                    ("one_hot_encoder",OneHotEncoder()),
+                    ("one_hot_encoder",OneHotEncoder(handle_unknown="ignore")),
                     ("scalar",StandardScaler(with_mean=False))
                 ]
             )
-            logging.info(f"Numerica columns: {numerical_columns}")
+            logging.info(f"Numerical columns: {numerical_columns}")
             logging.info(f"Categorical columns: {categorical_columns}")
             
             preprocessor=ColumnTransformer(

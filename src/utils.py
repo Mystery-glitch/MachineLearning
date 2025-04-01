@@ -1,6 +1,8 @@
 import sys
 import os
 import dill
+import pickle
+import joblib
 import pandas as pd
 import numpy as np
 
@@ -14,7 +16,7 @@ def save_object(file_path, obj):
         dir_path=os.path.dirname(file_path) # os.path.dirname(): used to get the directory name from a file path
         os.makedirs(dir_path,exist_ok=True)
         with open(file_path,"wb") as file_obj:
-            dill.dump(obj, file_obj)
+            joblib.dump(obj, file_obj)
     except Exception as ex:
         raise CustomException(ex, sys)
     
@@ -43,3 +45,11 @@ def evaluate_models(x_train,x_test,y_train,y_test,models,param):
         return report
     except Exception as ex:
         raise CustomException(ex, sys)
+
+def load_object(file_path): # this load object is responsible for loading the pickle file
+    try:    
+        with open(file_path,"rb") as file_obj:
+            return joblib.load(file_obj)
+    except Exception as ex:
+        raise CustomException(ex,sys)
+
