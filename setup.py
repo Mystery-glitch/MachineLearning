@@ -1,3 +1,5 @@
+# setup.py is responsible for creating the machine learning application as a package. It is special Python file that tells Python how to package your project, so others can install and use it easily.
+
 from setuptools import find_packages, setup
 from typing import List
 
