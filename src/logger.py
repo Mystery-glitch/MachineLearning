@@ -1,3 +1,5 @@
+# In Python, a logger is an object provided by the logging module that is used to record the log messages.
+
 import logging
 import os
 from datetime import datetime
