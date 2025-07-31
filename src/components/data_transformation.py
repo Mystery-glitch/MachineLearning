@@ -15,7 +15,9 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path=os.path.join('artifacts', 'preprocessor.pkl')
+    # storing the input in the pickle file so that we can reuse exact same transformation on new data
+    # here we don't use csv file to store the data as csv file store raw data whereas it stores python objects formated in binary(not human readable)
+    preprocessor_obj_file_path: str=os.path.join('artifacts', 'preprocessor.pkl')
 
 class DataTransformation:
     def __init__(self):
@@ -25,6 +27,12 @@ class DataTransformation:
         try:
             numerical_columns=['writing score', 'reading score']
             categorical_columns=['gender','race/ethnicity','parental level of education','lunch','test preparation course']
+            
+            # instead of writing in hardcoded way we can write this in short but we need to reade the csv file where we will drop the math score column as we are considering as the target variable
+            """
+            numerical_columns = x.select_dtypes(exclude = 'object').columns
+            categorical_columns = x.select_dtypes(include = 'object').columns
+            """
 
             num_pipeline=Pipeline(
                 steps=[
@@ -70,15 +78,15 @@ class DataTransformation:
             
             logging.info("Appling preprocessing object on training dataframe and test dataframe")
             input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
-            input_feature_test_arr=preprocessing_obj.fit_transform(input_feature_test_df)
+            input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
             
             train_arr=np.c_[input_feature_train_arr, np.array(target_feature_train_df)] # This code concatenates both the array
             test_arr=np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
-            
+                
             logging.info("Saved processing object\n")
             
             save_object(file_path=self.data_transformation_config.preprocessor_obj_file_path,obj=preprocessing_obj)
             
-            return(train_arr, test_arr, self.data_transformation_config.preprocessor_obj_file_path)
+            return (train_arr, test_arr, self.data_transformation_config.preprocessor_obj_file_path)
         except Exception as ex:
             raise CustomException(ex, sys)

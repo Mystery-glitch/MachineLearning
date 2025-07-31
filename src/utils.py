@@ -19,7 +19,7 @@ def save_object(file_path, obj):
         os.makedirs(dir_path,exist_ok=True)
         with open(file_path,"wb") as file_obj:
             joblib.dump(obj, file_obj)
-    except Exception as ex:
+    except Exception as ex:     
         raise CustomException(ex, sys)
     
 def evaluate_models(x_train,x_test,y_train,y_test,models,param):
@@ -33,8 +33,8 @@ def evaluate_models(x_train,x_test,y_train,y_test,models,param):
             # Hyperparameter tuning
             gs=GridSearchCV(model,para,cv=3)
             gs.fit(x_train,y_train)
-            model.set_params(**gs.best_params_)
-            
+            model.set_params(**gs.best_params_) # ** unpacks the dictionary into keyword argument
+
             model.fit(x_train,y_train)
             
             y_train_pred=model.predict(x_train)

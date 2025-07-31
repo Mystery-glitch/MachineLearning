@@ -6,7 +6,7 @@ import numpy as np
 
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
-application=Flask(__name__)
+application=Flask(__name__) # This will give us the entry point where we need to execute
 app = application
 
 # Route for homepage
@@ -15,7 +15,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/predictdata', methods=['GET','POST'])
-def predict_datapoint():
+def predict_datapoint():    
     if request.method=='GET':
         return render_template('home.html')
     else:
@@ -41,3 +41,5 @@ def predict_datapoint():
     
 if __name__=="__main__":
     app.run(host='0.0.0.0', debug=True, use_reloader=False)
+    # localHost: 127.0.0.1:5000 :- It will open the index.html
+    # localHost: 127.0.0.1:5000/predictdata :- It will open the home.html

@@ -11,11 +11,21 @@ from src.components.model_trainer import ModelTrainingConfig
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
 
+# @dataclass, a decorator in Python used to automatically generate special methods for classes such as __init__
 @dataclass
 class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts', 'train.csv')
     test_data_path: str=os.path.join('artifacts', 'test.csv')
     raw_data_path: str=os.path.join('artifacts', 'data.csv')
+
+# this is want we write if we don't use @dataclass
+'''
+class DataIngestionConfig:
+    def __init__(self):
+        self.train_data_path = os.path.join('artifacts', 'train.csv')
+        self.test_data_path = os.path.join('artifacts', 'test.csv')
+        self.raw_data_path = os.path.join('artifacts', 'data.csv')
+'''
 
 class DataIngestion:
     def __init__(self):
