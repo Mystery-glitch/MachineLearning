@@ -16,6 +16,7 @@ def index():
 
 @app.route('/predictdata', methods=['GET','POST'])
 def predict_datapoint():    
+    # GET method is used to retrive data from the server and POST method is used to send data to the server
     if request.method=='GET':
         return render_template('home.html')
     else:
