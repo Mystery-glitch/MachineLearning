@@ -73,7 +73,8 @@ class ModelTrainer:
             model_report: dict=evaluate_models(x_train=x_train, x_test=x_test, y_train=y_train, y_test=y_test, models=models,param=params)
 
             best_model_score=max(sorted(model_report.values()))# To get the best model score from dict
-            best_model_name=list(model_report.keys())[ # To get the best model name from dict
+            best_model_name=list(model_report.keys())[ 
+                # To get the best model name from dict
                 list(model_report.values()).index(best_model_score)
             ]
             best_model=models[best_model_name]
@@ -88,6 +89,7 @@ class ModelTrainer:
             )
             predicted=best_model.predict(x_test)
             r2=r2_score(y_test,predicted)
+            print(f"Best Model: {best_model_name}")
             return r2
         except Exception as ex:
             raise CustomException(ex, sys)

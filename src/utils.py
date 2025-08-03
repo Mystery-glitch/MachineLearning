@@ -34,7 +34,7 @@ def evaluate_models(x_train,x_test,y_train,y_test,models,param):
             gs=GridSearchCV(model,para,cv=3)
             gs.fit(x_train,y_train)
             model.set_params(**gs.best_params_) # ** unpacks the dictionary into keyword argument
-
+    
             model.fit(x_train,y_train)
             
             y_train_pred=model.predict(x_train)
