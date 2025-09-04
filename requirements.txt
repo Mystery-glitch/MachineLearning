@@ -1,4 +1,5 @@
 # pip install -r requirements.txt
+# -e . tells pip to install this project itself in editable/development mode, using setup.py
 
 pandas
 numpy
