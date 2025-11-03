@@ -76,17 +76,17 @@ It helps to understand how a student's performance is affected by factors such a
 - Git  
 
 ### ⚙️ Setup
-# Clone the repository
+#### Clone the repository
 - git clone https://github.com/Mystery-glitch/MachineLearning.git
 - cd MachineLearning
 
-# Create virtual environment (optional)
+#### Create virtual environment (optional)
 
-# Install dependencies
+#### Install dependencies
 pip install -r requirements.txt
 
-# Run the Flask app
+#### Run the Flask app
 python app.py
 
-# LocalHost
+#### LocalHost
 Open your browser and go to http://127.0.0.1:5000/predictdata
