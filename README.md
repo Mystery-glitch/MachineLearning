@@ -66,3 +66,27 @@ It helps to understand how a student's performance is affected by factors such a
 - Machine Learning - Scikit-learn, XGBoost, CatBoost
 - Frontend - HTML, CSS
 - Version Control - Git, GitHub
+
+
+## 💻 How to Run the Project
+
+### 🧩 Prerequisites
+- Python 3.8
+- pip (or conda)  
+- Git  
+
+### ⚙️ Setup
+# Clone the repository
+- git clone https://github.com/Mystery-glitch/MachineLearning.git
+- cd MachineLearning
+
+# Create virtual environment (optional)
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the Flask app
+python app.py
+
+# LocalHost
+Open your browser and go to http://127.0.0.1:5000/predictdata
