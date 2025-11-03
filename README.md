@@ -59,10 +59,10 @@ It helps to understand how a student's performance is affected by factors such a
 
 
 ## 🧩 Technologies Used
-Language - Python 3.8
-Framework - Flask
-Data Handling - Pandas, NumPy 
-Visualization - Matplotlib, Seaborn 
-Machine Learning - Scikit-learn, XGBoost, CatBoost
-Frontend - HTML, CSS
-Version Control - Git, GitHub
+- Language - Python 3.8
+- Framework - Flask
+- Data Handling - Pandas, NumPy 
+- Visualization - Matplotlib, Seaborn 
+- Machine Learning - Scikit-learn, XGBoost, CatBoost
+- Frontend - HTML, CSS
+- Version Control - Git, GitHub
